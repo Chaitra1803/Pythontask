@@ -43,7 +43,7 @@ pipeline {
                     sh 'pip install Flask'
 
                     // Build Docker image
-                    sh "docker build -t my-python-app"
+                    sh "docker build -t ."
                 }
             }
         }
