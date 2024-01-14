@@ -24,6 +24,18 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                script {
+                    // Run unit tests using Docker
+                    def testExitCode = sh(script: 'docker run $DOCKER_IMAGE python -m unittest discover -s tests', returnStatus: true)
+                    if (testExitCode != 0) {
+                        error "Unit tests failed. Exiting with status ${testExitCode}"
+                    }
+                }
+            }
+        }
+
         stage('Push to Docker Hub') {
             steps {
                 script {
@@ -36,4 +48,14 @@ pipeline {
             }
         }
     }
+
+    post {
+        failure {
+            script {
+                echo 'One or more stages failed. Check the logs for details.'
+                currentBuild.result = 'FAILURE'
+            }
+        }
+    }
 }
+
