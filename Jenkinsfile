@@ -48,8 +48,10 @@ pipeline {
 
     post {
         failure {
-            echo 'One or more stages failed. Check the logs for details.'
-            currentBuild.result = 'FAILURE'
+            script {
+                echo 'One or more stages failed. Check the logs for details.'
+                currentBuild.result = 'FAILURE'
+            }
         }
     }
 }
