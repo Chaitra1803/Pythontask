@@ -43,7 +43,7 @@ pipeline {
                     sh 'pip install Flask'
 
                     // Build Docker image
-                    sh "docker build -t $DOCKER_IMAGE"
+                    sh "docker build -t my-python-app"
                 }
             }
         }
@@ -71,7 +71,7 @@ pipeline {
         always {
             // Clean up: remove the Docker image locally
             script {
-                sh "docker rmi $DOCKER_IMAGE"
+                sh "docker rmi my-python-app"
             }
         }
     }
