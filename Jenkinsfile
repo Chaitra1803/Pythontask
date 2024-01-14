@@ -4,6 +4,9 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'my-python-app'  // Set your desired Docker image name
         DOCKER_REPO = 'veera1808/my-python-app'  // Replace with your Docker Hub username/repository
+        DOCKER_USERNAME = 'veera1808'
+        DOCKER_PASSWORD = 'dckr_pat_oatPauXCPRsKrlIb0VsVza4Tjl4'
+        
     }
 
     stages {
@@ -38,7 +41,7 @@ pipeline {
                     sh 'pip install Flask'
 
                     // Build Docker image
-                    sh "docker build -t $DOCKER_IMAGE ."
+                    sh "docker build -t $my-python-app ."
                 }
             }
         }
@@ -47,7 +50,7 @@ pipeline {
             steps {
                 script {
                     // Tag the Docker image
-                    sh "docker tag $DOCKER_IMAGE $DOCKER_REPO"
+                    sh "docker tag $my-python-app $veera1808/my-python-app"
 
                     // Log in to Docker Hub
                     withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIALS_ID', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
@@ -55,7 +58,8 @@ pipeline {
                     }
 
                     // Push the Docker image to Docker Hub
-                    sh "docker push $DOCKER_REPO"
+                  sh "docker push $DOCKER_REPO"
+
                 }
             }
         }
@@ -65,7 +69,7 @@ pipeline {
         always {
             // Clean up: remove the Docker image locally
             script {
-                sh "docker rmi $DOCKER_IMAGE"
+                sh "docker rmi $my-python-app"
             }
         }
     }
