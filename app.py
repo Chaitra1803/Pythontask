@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello, this is a sample Python Frontend Application!'
+    return render_template('index.html')  # Render the template
 
 @app.route('/datetime')
 def current_datetime():
