@@ -6,27 +6,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-  return 'Hello, this is a sample Python Frontend Application!Welcome to a dynamic playground built with Python's Flask framework!
-
-Explore interactive features that showcase effortless web development with Python.
-
-Discover how simple it is to create engaging web experiences using Python's versatility.
-
-Unleash the power of Python to craft dynamic web applications with ease.
-
-Navigate through various functionalities to witness Python's web prowess.
-
-Unlock endless possibilities for your web projects with Python's limitless potential.
-
+  return 'Hello, this is a sample Python Frontend Application!Welcome to a dynamic playground built with Python's Flask framework!Explore interactive features that showcase effortless web development with Python.
+Discover how simple it is to create engaging web experiences using Python's versatility.Unleash the power of Python to craft dynamic web applications with ease.
+Navigate through various functionalities to witness Python's web prowess.Unlock endless possibilities for your web projects with Python's limitless potential.
 Embrace Python's clarity and efficiency for enjoyable web development.
-
 Experience the seamless integration of Python and web technologies for impactful results.
-
 Feel free to interact with the application and witness Python's web capabilities firsthand.
-
-Let's embark on a journey of web creation with Python as our guide!
-
-I'm also ready to assist with any further questions or explorations you may have.'
+Let's embark on a journey of web creation with Python as our guide!'
 
 @app.route('/datetime')
 def current_datetime():
