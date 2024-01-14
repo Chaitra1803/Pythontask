@@ -27,8 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Add your testing steps here
-                    sh 'docker run $DOCKER_IMAGE python -m unittest discover -s tests'
+                    sh 'docker run $DOCKER_IMAGE pytest tests'
                 }
             }
         }
