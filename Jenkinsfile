@@ -27,7 +27,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'docker run $DOCKER_IMAGE pytest tests'
+                    // Run unit tests using Docker
+                    sh 'docker run $DOCKER_IMAGE python -m unittest discover -s tests'
                 }
             }
         }
@@ -42,6 +43,13 @@ pipeline {
                     sh "docker push $DOCKER_USERNAME/$DOCKER_IMAGE"
                 }
             }
+        }
+    }
+
+    post {
+        failure {
+            echo 'One or more stages failed. Check the logs for details.'
+            currentBuild.result = 'FAILURE'
         }
     }
 }
