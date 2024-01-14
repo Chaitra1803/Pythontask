@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE = 'my-python-app'  // Set your desired Docker image name
         DOCKER_REPO = 'veera1808/my-python-app'  // Replace with your Docker Hub username/repository
         DOCKER_USERNAME = 'veera1808'
-        DOCKER_PASSWORD = 'dckr_pat_oatPauXCPRsKrlIb0VsVza4Tjl4'
+        DOCKER_PASSWORD = 'Venkatesh'
         
     }
 
