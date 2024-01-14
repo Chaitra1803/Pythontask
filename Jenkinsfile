@@ -43,7 +43,7 @@ pipeline {
                     sh 'pip install Flask'
 
                     // Build Docker image
-                    sh "docker build -t $my-python-app ."
+                    sh "docker build -t $DOCKER_IMAGE"
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script {
                     // Tag the Docker image
-                    sh "docker tag $my-python-app $veera1808/my-python-app"
+                    sh "docker tag $DOCKER_IMAGE $DOCKER_REPO"
 
                     // Log in to Docker Hub
                     withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIALS_ID', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
@@ -71,7 +71,7 @@ pipeline {
         always {
             // Clean up: remove the Docker image locally
             script {
-                sh "docker rmi $my-python-app"
+                sh "docker rmi $DOCKER_IMAGE"
             }
         }
     }
