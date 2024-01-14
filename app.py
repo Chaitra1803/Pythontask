@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-  return 'Hello, this is a sample Python Frontend Application!Welcome to a dynamic playground built with Python's Flask framework!Explore interactive features that showcase effortless web development with Python.
-Discover how simple it is to create engaging web experiences using Python's versatility.Unleash the power of Python to craft dynamic web applications with ease.
+  return 'Hello, this is a sample Python Frontend Application!Welcome to a dynamic playground built with Python's Flask framework!Explore interactive features that showcase effortless web development with Python.Discover how simple it is to create engaging web experiences using Python's versatility.Unleash the power of Python to craft dynamic web applications with ease.
 Navigate through various functionalities to witness Python's web prowess.Unlock endless possibilities for your web projects with Python's limitless potential.
 Embrace Python's clarity and efficiency for enjoyable web development.
 Experience the seamless integration of Python and web technologies for impactful results.
