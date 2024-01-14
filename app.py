@@ -15,6 +15,13 @@ def current_datetime():
 
 @app.route('/form', methods=['GET', 'POST'])
 def form_example():
+    if request.method == 'POST':
+        name = request.form['name']
+        return f'Thank you, {name}, for submitting the form!'
+    return render_template('form.html')  # Render the form.html template
+
+@app.route('/form', methods=['GET', 'POST'])
+def form_example():
   if request.method == 'POST':
     name = request.form['name']
     return f'Thank you, {name}, for submitting the form!'
